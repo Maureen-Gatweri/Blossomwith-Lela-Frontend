@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-jost: 'Jost', sans-serif;
+  --color-bark: #3d2b2b;
+  --color-rose: #c97b84;
+  --color-cream: #fdf8f5;
+  --color-blush: #f7e8e8;
+  --navbar-height: 120px;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-jost);
+  background: #fff;
+  color: var(--color-bark);
+  overflow-x: hidden;
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-cormorant);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; }
+
+.font-display { font-family: var(--font-cormorant); }
+.font-body { font-family: var(--font-jost); }
+
+/* ── Navbar height compensation ── */
+main {
+  padding-top: var(--navbar-height);
+}
+
+/* ── Smooth scrolling sections ── */
+section {
+  scroll-margin-top: var(--navbar-height);
+}
+
+/* ── Responsive navbar height ── */
+@media (max-width: 768px) {
+  :root { --navbar-height: 80px; }
+}
+
+/* ── Prevent overflow ── */
+* { max-width: 100%; }
+
+/* ── Responsive font scaling ── */
+@media (max-width: 1024px) { html { font-size: 15px; } }
+@media (max-width: 768px)  { html { font-size: 14px; } }
+@media (max-width: 480px)  { html { font-size: 13px; } }
+
+/* ── Global responsive grid ── */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 1.5rem;
+}
+@media (max-width: 1024px) { .grid-4 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 1.25rem 1rem; } }
+@media (max-width: 480px)  { .grid-4 { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+/* ── Global responsive 2-col ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+@media (max-width: 768px) { .container { padding: 0 1.25rem; } }
+@media (max-width: 480px) { .container { padding: 0 1rem; } }
+
+/* ── Section padding ── */
+.section-pad { padding: 5rem 0; }
+@media (max-width: 768px) { .section-pad { padding: 3rem 0; } }
+@media (max-width: 480px) { .section-pad { padding: 2rem 0; } }
+
+/* ── Hero slider responsive ── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+}
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+/* ── About section responsive ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ── Category grid ── */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .cat-grid { grid-template-columns: 1fr; } }
+
+/* ── Cart/Checkout grid ── */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ── Product detail grid ── */
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ── Cart table ── */
+.cart-table {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr 1fr 0.8fr 0.4fr;
+  gap: 1rem;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .cart-table {
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+  }
+}
+
+/* ── Reviews grid ── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 640px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+/* ── Gallery grid ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+@media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── Footer grid ── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  gap: 2rem;
+}
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+/* ── Typography responsive ── */
+.heading-xl { font-family: var(--font-cormorant); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; }
+.heading-lg { font-family: var(--font-cormorant); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.15; }
+.heading-md { font-family: var(--font-cormorant); font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 300; line-height: 1.2; }
+.heading-sm { font-family: var(--font-cormorant); font-size: clamp(1.2rem, 2vw, 1.8rem); font-weight: 300; }
+
+.label {
+  font-family: var(--font-jost);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-rose);
+}
+
+/* ── Button base ── */
+.btn-dark {
+  display: inline-block;
+  background: var(--color-bark);
+  color: #fff;
+  font-family: var(--font-jost);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.5rem;
+  border: 1px solid var(--color-bark);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.btn-dark:hover { background: transparent; color: var(--color-bark); }
+
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--color-bark);
+  font-family: var(--font-jost);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.5rem;
+  border: 1px solid var(--color-bark);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.btn-outline:hover { background: var(--color-bark); color: #fff; }
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f0ece8; }
+::-webkit-scrollbar-thumb { background: #c9a8a8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-rose); }

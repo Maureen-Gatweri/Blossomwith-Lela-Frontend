@@ -24,6 +24,8 @@ export const useAuthStore = create<AuthStore>()(
       logout: () => set({ user: null }),
       isLoggedIn: () => !!get().user,
     }),
-    { name: "blossom-auth" }
+    {
+      name: "blossom-auth",
+    }
   )
 );
